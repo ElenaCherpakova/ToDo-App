@@ -9,16 +9,19 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
-const Todo = ({ task, completed }) => {
+const Todo = ({ id, task, completed, removeTodo, toggleTodo }) => {
   return (
     <ListItem>
-      <Checkbox tabIndex={-1} checked={completed} />
-      <ListItemText>{task}</ListItemText>
+      <Checkbox tabIndex={-1} checked={completed} onClick={()=> toggleTodo(id)}/>
+      <ListItemText
+        style={{ textDecoration: completed ? 'line-through' : 'none' }}>
+        {task}
+      </ListItemText>
       <ListItemSecondaryAction>
-        <IconButton arial-label='delete'>
+        <IconButton arial-label='Delete' onClick={()=> removeTodo(id)}>
           <DeleteIcon />
         </IconButton>
-        <IconButton arial-label='edit'>
+        <IconButton arial-label='Edit'>
           <EditIcon />
         </IconButton>
       </ListItemSecondaryAction>
