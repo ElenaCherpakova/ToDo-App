@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Typography, Paper, AppBar, Toolbar, Grid } from '@mui/material';
 import TodoList from './TodoList';
-import TodoForm from "./TodoForm";
+import TodoForm from './TodoForm';
 const ToDoApp = () => {
   const initialTodos = [
     {
@@ -38,8 +38,12 @@ const ToDoApp = () => {
           <Typography color='inherit'>ToDo App</Typography>
         </Toolbar>
       </AppBar>
-      <TodoForm addTodo={addTodo} />
-      <TodoList todos={todos} />
+      <Grid container justifyContent='center' style={{ marginTop: '1rem' }}>
+        <Grid item xs={11} md={8} lg={5}>
+          <TodoForm addTodo={addTodo} />
+          <TodoList todos={todos} />
+        </Grid>
+      </Grid>
     </Paper>
   );
 };
