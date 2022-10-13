@@ -14,7 +14,7 @@ import EditIcon from '@mui/icons-material/Edit';
 const Todo = ({ id, task, completed, removeTodo, toggleTodo, editTodo }) => {
   const [isEditing, toggle] = useToggleState(false);
   return (
-    <ListItem>
+    <ListItem style={{ height: '64px' }}>
       {isEditing ? (
         <EditTodoForm
           id={id}
@@ -37,8 +37,8 @@ const Todo = ({ id, task, completed, removeTodo, toggleTodo, editTodo }) => {
             <IconButton arial-label='Delete' onClick={() => removeTodo(id)}>
               <DeleteIcon />
             </IconButton>
-            <IconButton arial-label='Edit'>
-              <EditIcon onClick={toggle} />
+            <IconButton arial-label='Edit' onClick={toggle}>
+              <EditIcon />
             </IconButton>
           </ListItemSecondaryAction>
         </>
