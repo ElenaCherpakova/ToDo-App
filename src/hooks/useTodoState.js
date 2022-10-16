@@ -1,7 +1,7 @@
 import useLocalStorageState from './useLocalStorageState';
 import uuid from 'react-uuid';
 
-function useTodoState (initialTodos) {
+function useTodoState(initialTodos) {
   const [todos, setTodos] = useLocalStorageState('todos', initialTodos);
   return {
     todos,
@@ -25,6 +25,6 @@ function useTodoState (initialTodos) {
       setTodos(updatedTodos);
     },
   };
-};
+}
 
 export default useTodoState;
