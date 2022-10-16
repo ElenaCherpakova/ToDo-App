@@ -10,11 +10,11 @@ import {
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import { TodosContext } from './contexts/todos.context';
+import { DispatchContext } from './contexts/todos.context';
 
 const Todo = ({ id, task, completed }) => {
   const [isEditing, toggle] = useToggleState(false);
-  const { dispatch } = useContext(TodosContext);
+  const  dispatch  = useContext(DispatchContext);
 
   return (
     <ListItem style={{ height: '64px' }}>

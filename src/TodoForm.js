@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
 import { Paper, TextField } from '@mui/material';
 import useInputState from './hooks/useInputState';
-import { TodosContext } from './contexts/todos.context';
+import { DispatchContext } from './contexts/todos.context';
 
 const TodoForm = () => {
   const [value, handleChange, reset] = useInputState('');
-  const { dispatch } = useContext(TodosContext);
+  const dispatch = useContext(DispatchContext);
 
   const handleNewTodoSubmit = (e) => {
     e.preventDefault();
-    dispatch({type: "ADD", task: value });
+    dispatch({ type: 'ADD', task: value });
     reset();
   };
 

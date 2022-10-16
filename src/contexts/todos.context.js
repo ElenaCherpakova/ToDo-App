@@ -3,6 +3,8 @@ import React, { createContext, useReducer } from 'react';
 import todoReducer from '../reducers/todo.reducer';
 
 export const TodosContext = createContext();
+export const DispatchContext=createContext();
+
 const defaultTodos = [{ id: 1, task: 'Clean the room', completed: false }];
 
 export function TodosProvider(props) {
@@ -10,8 +12,10 @@ export function TodosProvider(props) {
 
   return (
     <TodosContext.Provider
-      value={{ todos, dispatch }}>
+      value={todos}>
+        <DispatchContext.Provider value={dispatch}>
       {props.children}
+      </DispatchContext.Provider>
     </TodosContext.Provider>
   );
 }
